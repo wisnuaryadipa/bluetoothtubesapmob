@@ -49,18 +49,18 @@ public class MainActivity extends Activity {
     
     /** Cek Bluetooth aktif apa enggak, Kalau enggak muncul window requestenable bluetooth */
  private void CheckBlueToothState(){
-     if (BTadapter == null){
-         statusAktifBT.setText("Bluetooth NOT support");
+      if (BTadapter == null){
+         statusAktifBT.setText("Bluetooth TIDAK TERSEDIA");
         }else{
          if (BTadapter.isEnabled()){
           if(BTadapter.isDiscovering()){
-           statusAktifBT.setText("Bluetooth is currently in device discovery process.");
+           statusAktifBT.setText("Bluetooth sedang dalam keadaan idle, akan segera di aktifkan.");
           }else{
-           statusAktifBT.setText("Bluetooth is Enabled.");
+           statusAktifBT.setText("Bluetooth AKTIF.");
            btnScan.setEnabled(true);
           }
          }else{
-          statusAktifBT.setText("Bluetooth is NOT Enabled!");
+          statusAktifBT.setText("Bluetooth TIDAK AKTIF!");
           Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
              startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
          }
